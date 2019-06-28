@@ -40,6 +40,7 @@ module.exports = function(grunt) {
         npmInstall: false,
         bowerInstall: false,
         depth: 0,
+        noSingleBranch: false,
       })
 
       // check if configFile option has been entered.
@@ -106,6 +107,10 @@ module.exports = function(grunt) {
 
         if (options.depth > 0) {
           execString += ' --depth ' + options.depth
+        }
+
+        if (options.noSingleBranch) {
+          execString += ' --no-single-branch'
         }
 
         if (options.postClone !== '') {

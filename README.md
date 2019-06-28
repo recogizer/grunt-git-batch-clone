@@ -81,6 +81,12 @@ Default value: `0`
 
 Specifiy clone depth. 0 will recurse all the way down the tree.
 
+#### options.noSingleBranch
+Type: 'Boolean'
+Default value: `false`.
+
+`--no-single-branch` git clone option.
+
 ### Usage Examples
 
 #### Default Options
