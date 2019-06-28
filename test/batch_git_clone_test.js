@@ -1,8 +1,7 @@
-'use strict';
+'use strict'
 
-var grunt     = require('grunt');
-var rimraf    = require('rimraf');
-
+var grunt = require('grunt')
+var rimraf = require('rimraf')
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -24,82 +23,72 @@ var rimraf    = require('rimraf');
     test.ifError(value)
 */
 
-
-
-
-
 exports.batch_git_clone = {
-
   setUp: function(done) {
-
     // no setup really needed
-    done();
+    done()
   },
 
   standard: function(test) {
-
     // read in the config file.
-    var config = grunt.file.readJSON('config-standard.json');
-    var pathList = [];
+    var config = grunt.file.readJSON('config-standard.json')
+    var pathList = []
 
     // create an array of repos which included the path of each repo.
     // works recursively.
-    getItemList(config, '');
+    getItemList(config, '')
 
-    function getItemList(object, path){
-      for (var prop in object){
-        if(typeof object[prop] === 'object'){
-          var newPath = path + (prop+'/');
-          getItemList(object[prop], newPath);
-        }else{
-          pathList.push(path+prop);
+    function getItemList(object, path) {
+      for (var prop in object) {
+        if (typeof object[prop] === 'object') {
+          var newPath = path + (prop + '/')
+          getItemList(object[prop], newPath)
+        } else {
+          pathList.push(path + prop)
         }
       }
     }
 
-    test.expect(5);
+    test.expect(5)
 
     for (var i = 0; i < pathList.length; i++) {
-      test.equal(grunt.file.isDir(pathList[i]), true);
+      test.equal(grunt.file.isDir(pathList[i]), true)
     }
 
-    test.done();
+    test.done()
   },
-
 
   withNPM: function(test) {
-
     // read in the config file.
-    var config = grunt.file.readJSON('config-with-dependencies.json');
-    var pathList = [];
+    var config = grunt.file.readJSON('config-with-dependencies.json')
+    var pathList = []
 
     // create an array of repos which included the path of each repo.
     // works recursively.
-    getItemList(config, '');
+    getItemList(config, '')
 
-    function getItemList(object, path){
-      for (var prop in object){
-        if(typeof object[prop] === 'object'){
-          var newPath = path + (prop+'/');
-          getItemList(object[prop], newPath);
-        }else{
-          pathList.push(path+prop);
+    function getItemList(object, path) {
+      for (var prop in object) {
+        if (typeof object[prop] === 'object') {
+          var newPath = path + (prop + '/')
+          getItemList(object[prop], newPath)
+        } else {
+          pathList.push(path + prop)
         }
       }
     }
 
-    test.expect(4);
+    test.expect(4)
 
     for (var i = 0; i < pathList.length; i++) {
-      console.log(pathList[i]+'/node_modules');
-      test.equal(grunt.file.isDir(pathList[i]+'/node_modules'), true);
+      console.log(pathList[i] + '/node_modules')
+      test.equal(grunt.file.isDir(pathList[i] + '/node_modules'), true)
     }
 
-    test.done();
+    test.done()
   },
 
-  withOverwrite : function(test){
-
+  withOverwrite: function(test) {
     // This test will be completed when I can add callback to a task in grunt,
     // see https://github.com/gruntjs/grunt/issues/1184
 
@@ -123,9 +112,6 @@ exports.batch_git_clone = {
     })
     */
 
-    test.done();
-
-  }
-
-
-};
+    test.done()
+  },
+}

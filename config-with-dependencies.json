@@ -1,15 +1,15 @@
 {
   "clones-with-dependencies": {
     "promises": {
-      "q" : "https://github.com/kriskowal/q.git",
-      "async" : "https://github.com/caolan/async.git"
+      "q": "https://github.com/kriskowal/q.git",
+      "async": "https://github.com/caolan/async.git"
     },
     "grunt": {
-      "grunt-sass" : "https://github.com/gruntjs/grunt-contrib-sass.git"
+      "grunt-sass": "https://github.com/gruntjs/grunt-contrib-sass.git"
     },
     "frameworks": {
       "front": {
-        "ember" : "https://github.com/emberjs/ember.js"
+        "ember": "https://github.com/emberjs/ember.js"
       }
     }
   }
